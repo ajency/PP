@@ -175,7 +175,7 @@ if (empty($errors) && !empty($emailData)) {
 
     if ($mailSent) {
         // Redirect with success message
-        $successUrl = $referer . (strpos($referer, '?') !== false ? '&' : '?') . 'form_status=success';
+        $successUrl = $referer . (strpos($referer, '?') !== false ? '&' : '?') . 'form_status=success#contact-us';
         header('Location: ' . $successUrl);
         exit;
     } else {
@@ -185,7 +185,7 @@ if (empty($errors) && !empty($emailData)) {
 
 // If there were errors, redirect back with error message
 if (!empty($errors)) {
-    $errorUrl = $referer . (strpos($referer, '?') !== false ? '&' : '?') . 'form_status=error&message=' . urlencode(implode(', ', $errors));
+    $errorUrl = $referer . (strpos($referer, '?') !== false ? '&' : '?') . 'form_status=error&message=' . urlencode(implode(', ', $errors)) . '#contact-us';
     header('Location: ' . $errorUrl);
     exit;
 }
