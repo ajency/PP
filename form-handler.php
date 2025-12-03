@@ -6,7 +6,7 @@
 
 // Configuration
 $config = [
-    'recipient_email' => 'anuj@ajency.in',
+    'recipient_email' => 'info@parikhpower.in',
     'site_name' => 'Parikh Power',
     'recaptcha_secret' => '', // Add your reCAPTCHA secret key here
 ];
