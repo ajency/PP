@@ -959,12 +959,34 @@ District-Mehsana, Gujarat-INDIA</p>
 </div>
 <div class="row">
 <div class="col-6"><span class="wpcf7-form-control-wrap your-company"><input type="text" name="your-company" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Company" /></span></div>
-<div class="col-6"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" /></span> </div>
+<div class="col-6"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span> </div>
 </div>
 <p><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Message"></textarea></span> </p>
 <p></br></p>
 <p class="formSubmit"><input type="submit" value="Send" class="wpcf7-form-control has-spinner wpcf7-submit contactSubmit" /></p>
-</form></div></div></div></div><div class="vc_row element-row row  map-section vc_custom_1509543629859"><div class="wpb_column vc_column_container vc_col-sm-12 vc_custom_1506335365934"><div class="wpb_wrapper"><div class="fw-section without-border" style=""><div class="content-total-fw"><div class="shortcode-wrapper shortcode-map-embed clearfix hb-animate-element top-to-bottom"><div class="map-wrapper shadow"><div class="hb-gmap-map" data-api-key="AIzaSyADYTMyjaok8qGJgPcBa2kycE7gDc2knTo" data-show-location="0" data-map-level="16" data-map-lat="23.0463642" data-map-lng="72.5403609" data-map-img="" data-overlay-color="#ff6838" style="height:400px;"></div></div></div></div></div></div></div></div>
+</form><div id="form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;"></div>
+<script>
+(function(){
+    var params = new URLSearchParams(window.location.search);
+    var status = params.get('form_status');
+    var msg = params.get('message');
+    var msgDiv = document.getElementById('form-message');
+    if(status && msgDiv){
+        if(status === 'success'){
+            msgDiv.style.display = 'block';
+            msgDiv.style.background = '#4CAF50';
+            msgDiv.style.color = '#fff';
+            msgDiv.textContent = 'Thank you! Your message has been sent successfully.';
+        } else if(status === 'error'){
+            msgDiv.style.display = 'block';
+            msgDiv.style.background = '#f44336';
+            msgDiv.style.color = '#fff';
+            msgDiv.textContent = msg || 'There was an error. Please try again.';
+        }
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+})();
+</script></div></div></div></div><div class="vc_row element-row row  map-section vc_custom_1509543629859"><div class="wpb_column vc_column_container vc_col-sm-12 vc_custom_1506335365934"><div class="wpb_wrapper"><div class="fw-section without-border" style=""><div class="content-total-fw"><div class="shortcode-wrapper shortcode-map-embed clearfix hb-animate-element top-to-bottom"><div class="map-wrapper shadow"><div class="hb-gmap-map" data-api-key="AIzaSyADYTMyjaok8qGJgPcBa2kycE7gDc2knTo" data-show-location="0" data-map-level="16" data-map-lat="23.0463642" data-map-lng="72.5403609" data-map-img="" data-overlay-color="#ff6838" style="height:400px;"></div></div></div></div></div></div></div></div>
 												</div>
 				<!-- END .hb-main-content -->
 
@@ -981,23 +1003,45 @@ District-Mehsana, Gujarat-INDIA</p>
 
 <h3 class="text-center">Send us an enquiry</h3>
 <p><label> Name (required)<br />
-    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name" /></span> </label></p>
+    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span> </label></p>
 <p><label> Phone<br />
-<span class="wpcf7-form-control-wrap phone"><input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone" /></span> </label></p>
+<span class="wpcf7-form-control-wrap phone"><input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span> </label></p>
 <p><label> Email (required)<br />
-    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" /></span> </label></p>
+    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span> </label></p>
 <p><label> Company<br />
-<span class="wpcf7-form-control-wrap company"><input type="text" name="company" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Company" /></span></label></p>
+<span class="wpcf7-form-control-wrap company"><input type="text" name="company" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Company" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span></label></p>
 <p><label> Message<br />
-    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="1" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span> </label></p>
-<p><label> <span id="captcha-question">What is 3 + 5?</span><br />
-<input type="number" name="captcha_answer" required placeholder="Enter answer" style="width:100%;padding:8px;" />
+    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="1" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);"></textarea></span> </label></p>
+<p><label> <span id="captcha-question" style="color:#fff;font-weight:bold;">What is 3 + 5?</span><br />
+<input type="number" name="captcha_answer" required placeholder="Enter answer" style="width:100%;padding:8px;color:#fff;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);" />
 <input type="hidden" name="captcha_expected" id="captcha-expected" value="" />
 </label></p>
 <script>(function(){var a=Math.floor(Math.random()*10)+1;var b=Math.floor(Math.random()*10)+1;document.getElementById('captcha-question').textContent='What is '+a+' + '+b+'?';document.getElementById('captcha-expected').value=btoa(a+b);})();</script>
 <p><br/><br/></p>
 <p><input type="submit" value="Submit" class="wpcf7-form-control has-spinner wpcf7-submit" /></p>
-</form></div></div></div></div></div></div></div></div><div class="video-overlay no-overlay"></div></div>
+</form><div id="form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;"></div>
+<script>
+(function(){
+    var params = new URLSearchParams(window.location.search);
+    var status = params.get('form_status');
+    var msg = params.get('message');
+    var msgDiv = document.getElementById('form-message');
+    if(status && msgDiv){
+        if(status === 'success'){
+            msgDiv.style.display = 'block';
+            msgDiv.style.background = '#4CAF50';
+            msgDiv.style.color = '#fff';
+            msgDiv.textContent = 'Thank you! Your message has been sent successfully.';
+        } else if(status === 'error'){
+            msgDiv.style.display = 'block';
+            msgDiv.style.background = '#f44336';
+            msgDiv.style.color = '#fff';
+            msgDiv.textContent = msg || 'There was an error. Please try again.';
+        }
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+})();
+</script></div></div></div></div></div></div></div></div><div class="video-overlay no-overlay"></div></div>
 
 </div>
 	<!-- END .container -->
