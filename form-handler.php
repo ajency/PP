@@ -128,13 +128,12 @@ elseif (isset($_POST['your-full-name'])) {
     $company = sanitize($_POST['your-company'] ?? '');
     $message = sanitize($_POST['your-message'] ?? '');
 
-    // Verify reCAPTCHA if configured
-    $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
-    if (!empty($config['recaptcha_secret']) && !verifyRecaptcha($recaptchaResponse, $config['recaptcha_secret'])) {
-        $errors[] = 'reCAPTCHA verification failed. Please try again.';
-    }
+    // Math captcha validation
+    $captchaAnswer = isset($_POST['captcha_answer']) ? intval($_POST['captcha_answer']) : 0;
+    $captchaExpected = isset($_POST['captcha_expected']) ? intval(base64_decode($_POST['captcha_expected'])) : -1;
 
     // Validation
+    if ($captchaAnswer !== $captchaExpected) $errors[] = 'Incorrect captcha answer';
     if (empty($name)) $errors[] = 'Full name is required';
     if (empty($phone)) $errors[] = 'Phone is required';
     if (empty($email)) $errors[] = 'Email is required';

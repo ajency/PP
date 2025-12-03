@@ -962,15 +962,20 @@ District-Mehsana, Gujarat-INDIA</p>
 <div class="col-6"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" style="color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" /></span> </div>
 </div>
 <p><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Message"></textarea></span> </p>
+<p><label> <span id="contact-captcha-question" style="font-weight:bold;">What is 3 + 5?</span><br />
+<input type="number" name="captcha_answer" required placeholder="Enter answer" style="width:100%;padding:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.4);" />
+<input type="hidden" name="captcha_expected" id="contact-captcha-expected" value="" />
+</label></p>
+<script>(function(){var a=Math.floor(Math.random()*10)+1;var b=Math.floor(Math.random()*10)+1;document.getElementById('contact-captcha-question').textContent='What is '+a+' + '+b+'?';document.getElementById('contact-captcha-expected').value=btoa(a+b);})();</script>
 <p></br></p>
 <p class="formSubmit"><input type="submit" value="Send" class="wpcf7-form-control has-spinner wpcf7-submit contactSubmit" /></p>
-</form><div id="form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;position:relative;"></div>
+</form><div id="contact-form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;position:relative;"></div>
 <script>
 (function(){
     var params = new URLSearchParams(window.location.search);
     var status = params.get('form_status');
     var msg = params.get('message');
-    var msgDiv = document.getElementById('form-message');
+    var msgDiv = document.getElementById('contact-form-message');
     if(status && msgDiv){
         var closeBtn = '<span onclick="this.parentElement.style.display=\'none\'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:20px;font-weight:bold;">&times;</span>';
         if(status === 'success'){
