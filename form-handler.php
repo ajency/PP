@@ -94,7 +94,12 @@ elseif (isset($_POST['your-name'])) {
     $company = sanitize($_POST['company'] ?? '');
     $message = sanitize($_POST['your-message'] ?? '');
 
+    // Math captcha validation
+    $captchaAnswer = isset($_POST['captcha_answer']) ? intval($_POST['captcha_answer']) : 0;
+    $captchaExpected = isset($_POST['captcha_expected']) ? intval(base64_decode($_POST['captcha_expected'])) : -1;
+
     // Validation
+    if ($captchaAnswer !== $captchaExpected) $errors[] = 'Incorrect captcha answer';
     if (empty($name)) $errors[] = 'Name is required';
     if (empty($phone)) $errors[] = 'Phone is required';
     if (empty($email)) $errors[] = 'Email is required';
