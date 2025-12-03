@@ -1002,7 +1002,7 @@ we supply.</h3><a href="../../steerable-propulsion-systems/index.html" class="hb
 <script>(function(){var a=Math.floor(Math.random()*10)+1;var b=Math.floor(Math.random()*10)+1;document.getElementById('captcha-question').textContent='What is '+a+' + '+b+'?';document.getElementById('captcha-expected').value=btoa(a+b);})();</script>
 <p><br/><br/></p>
 <p><input type="submit" value="Submit" class="wpcf7-form-control has-spinner wpcf7-submit" /></p>
-</form><div id="form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;"></div>
+</form><div id="form-message" style="display:none;padding:15px;margin:10px 0;border-radius:5px;text-align:center;font-weight:bold;position:relative;"></div>
 <script>
 (function(){
     var params = new URLSearchParams(window.location.search);
@@ -1010,16 +1010,17 @@ we supply.</h3><a href="../../steerable-propulsion-systems/index.html" class="hb
     var msg = params.get('message');
     var msgDiv = document.getElementById('form-message');
     if(status && msgDiv){
+        var closeBtn = '<span onclick="this.parentElement.style.display=\'none\'" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:20px;font-weight:bold;">&times;</span>';
         if(status === 'success'){
             msgDiv.style.display = 'block';
             msgDiv.style.background = '#4CAF50';
             msgDiv.style.color = '#fff';
-            msgDiv.textContent = 'Thank you! Your message has been sent successfully.';
+            msgDiv.innerHTML = 'Thank you! Your message has been sent successfully.' + closeBtn;
         } else if(status === 'error'){
             msgDiv.style.display = 'block';
             msgDiv.style.background = '#f44336';
             msgDiv.style.color = '#fff';
-            msgDiv.textContent = msg || 'There was an error. Please try again.';
+            msgDiv.innerHTML = (msg || 'There was an error. Please try again.') + closeBtn;
         }
         window.history.replaceState({}, document.title, window.location.pathname);
     }
